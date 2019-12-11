@@ -1,3 +1,5 @@
+
+
 #####
 # Computer Science and Software Engineering
 # PLTW AP CS Principles
@@ -54,7 +56,7 @@ for module in modules:
 def main_play(modules):
     '''main_play plays a tournament and outputs results to screen and file.
     This function is called once when this file is executed.
-    modules: a list of modules such as [team1, team2]    
+    modules: a list of modules such as [team1, team2]
 
     Returns:
         scores:
