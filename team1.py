@@ -5,6 +5,7 @@
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
+import random
 
 team_name = 'Green87' # Only 10 chars displayed.
 strategy_name = 'I have no idea what I am doing'
@@ -17,8 +18,8 @@ def move(my_history, their_history, my_score, their_score):
     Make my move.
     Returns 'c' or 'b'.
     '''
-    number = random.randint(1)
-    if 1 in number:
+    number = random.randint(1, 6)
+    if number is 1:
         return 'b'
     else:
         return 'c'
@@ -30,7 +31,7 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
 
-    return 'c'
+    #return 'c'
 
 
 def test_move(my_history, their_history, my_score, their_score, result):
