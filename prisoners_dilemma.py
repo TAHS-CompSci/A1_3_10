@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 ##### 
 # Computer Science and Software Engineering
 # PLTW AP CS Principles
@@ -30,6 +28,7 @@ from __future__ import print_function
 # scores, moves, reports = main_play([team1]*3+[example1])
 # section0, section1, section2, section3 = reports
 #######
+from importlib import reload
 import random
 import os.path              
     
@@ -41,14 +40,12 @@ import team10, team11, team12, team13, team14
 betray = example1
 collude = example0
 
-ex_modules = [example0, example1, example2, example3, example4, example5, example6, example7]
-
-team_modules = [team0, team1, team2, team3, team4, team5, team6, team7, team8, team9, team10, 
+modules = [example0, example1, example2, example3, example4, example5, example6, example7,
+team0, team1, team2, team3, team4, team5, team6, team7, team8, team9, team10, 
 team11, team12, team13, team14]
-
 for module in modules:
     reload(module)
-    print ('reloaded',module)
+    print('reloaded',module)
     for required_variable in ['team_name', 'strategy_name', 'strategy_description']:
         if not hasattr(module, required_variable):
             setattr(module, required_variable, 'missing assignment')
@@ -89,10 +86,10 @@ def play_tournament(modules):
             player2 = modules[second_team_index]
             score1, score2, moves1, moves2 = play_iterative_rounds(player1, player2)
             capitalize(moves1, moves2)
-            scores[first_team_index][second_team_index] = score1/len(moves1) # int division not an issue
+            scores[first_team_index][second_team_index] = score1//len(moves1) # int division not an issue
             moves[first_team_index][second_team_index] = moves1
             # Redundant, but record this for the other player, from their perspective
-            scores[second_team_index][first_team_index] = score2/len(moves2) 
+            scores[second_team_index][first_team_index] = score2//len(moves2) 
             moves[second_team_index][first_team_index] = moves2
         # Playing yourself doesn't do anything
         scores[first_team_index][first_team_index] = 0
@@ -270,7 +267,7 @@ def make_section2(modules, scores):
     for index in range(len(modules)):
         section2_list.append((modules[index].team_name,
                               'P'+str(index),
-                              str(sum(scores[index])/len(modules)),
+                              str(sum(scores[index])//len(modules)),
                               str(modules[index].strategy_name)))
     section2_list.sort(key=lambda x: int(x[2]), reverse=True)
     
