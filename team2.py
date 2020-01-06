@@ -1,22 +1,25 @@
 ####
 # Each team's file must define four tokens:
-#     team_name: neuroname
-#     strategy_name: Polite Betrayal
+#     team_name: Cryostheno
+#     strategy_name: hopefull betray
 #     strategy_description: Only betray when the opponent backstabs you
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Neuroname' # Only 10 chars displayed.
-strategy_name = 'Polite Betrayal'
-strategy_description = 'Only betray if the opponent has beckstabbed before'
+team_name = 'Cryostheno' # Only 10 chars displayed.
+strategy_name = 'hopefull betray'
+strategy_description = 'betray until it is evident they will not'
     
 def move(my_history, their_history, my_score, their_score):
-    if 0 or 'c' in their_history:
+    if my_score < their_score:
         return 'b'
-    elif their_history == 'c':
-        return 'b'
+    if my_score == their_score:
+        return 'c'
+    if their_history[-1] == their_history[-2] == 'c':
+        return "c"
     else:
         return 'b'
+   
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
@@ -32,7 +35,7 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
+    #return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
