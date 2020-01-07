@@ -11,10 +11,10 @@ strategy_name = 'hopefull betray'
 strategy_description = 'betray until it is evident they will not'
     
 def move(my_history, their_history, my_score, their_score):
-    if my_score < their_score:
-        return 'b'
     if my_score == their_score:
         return 'c'
+    while my_score < their_score:
+        return 'b'
     if their_history[-1] == their_history[-2] == 'c':
         return "c"
     else:
