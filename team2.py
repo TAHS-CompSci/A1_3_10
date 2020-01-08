@@ -7,18 +7,25 @@
 ####
 
 team_name = 'Cryostheno' # Only 10 chars displayed.
-strategy_name = 'hopefull betray'
-strategy_description = 'betray until it is evident they will not'
+strategy_name = 'Intelligent Betray'
+strategy_description = 'betray when evident they will not'
     
 def move(my_history, their_history, my_score, their_score):
     if len(my_history) == 0:
-        return 'c'
-    while my_score < their_score:
         return 'b'
-    if their_history[-1] == their_history[-2] == 'c':
-        return "c"
+    if len(my_history) >= 2:
+        if their_history[-1] == 'c' and their_history[-2] == 'c':
+            return "b"
+    if len(my_history) >= 4:    
+        while their_history[-1] == their_history[-3] and their_history[-2] == their_history[-4]:
+            if their_history[-1] == 'c':
+                return 'c'
+            else:
+                return 'b'
+        else:
+            return 'b'
     else:
-        return 'b'
+        return 'b' 
    
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
