@@ -1,42 +1,24 @@
 ####
 # Each team's file must define four tokens:
-#     team_name: a string
-#     strategy_name: a string
-#     strategy_description: a string
-#     move: A function that returns 'c' or 'b'
+#     team_name: The Game Theory 
+#     strategy_name: Betray 
+#     strategy_description: Always Betray 
+#     move: return 'b' 
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+team_name = 'The Game Theory'  #
+strategy_name = 'Betray'
+strategy_description = 'Always Betray'
     
 def move(my_history, their_history, my_score, their_score):
+    return 'b' 
+
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
     Make my move.
     Returns 'c' or 'b'. 
-    '''
-def move(my_history, their history, my_score, their_score): 
-    return 'c' 
-    
-def move(my_history, their_history, my_score, their_score): 
-    return 'c' 
-def move(my_history, their history, my_score, their_score): 
-    if len(my_history)%2 == 0 
-    return 'c' 
-else: 
-    return 
-
-def move(my_history, their_history, my_score, their_score): 
-    if len(my_history)==0: 
-        return 'c' 
-    elif my_history[-1]=='c' and their_history[-1]=='b' 
-        return 'b' 
-    else:   
-        return 'c' 
-
-if test_move(my_history='
+ 
     
     
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
@@ -50,9 +32,13 @@ Project 1.3.10
 Game Theory
 INTRODUCTION
 
-How do people make decisions? How do rewards, punishments, and ethical and moral beliefs affect people's decisions? How do decisions made in one situation apply to another?.
-
-In this project, you will create a decision-making strategy using Python. Your strategy will compete against other teams’ strategies in a round-robin tournament of a game called the Iterative Prisoner's Dilemma (IPD). The IPD is a fundamental problem in game theory. Social scientists can use game theory to describe and predict people's behavior. Examples include economic phenomena like stock market fluctuations and political phenomena like revolutions. Nations use game theory to simulate the outcomes of various options when negotiating economic treaties or conducting war.
+How do people make decisions? How do rewards, punishments, and ethical and moral beliefs affect people's decisions? How do decisions made in one situation apply to              
+             
+             
+             
+            
+       
+in this project, you will create a decision-making strategy using Python. Your strategy will compete against other teams’ strategies in a round-robin tournament of a game called the Iterative Prisoner's Dilemma (IPD). The IPD is a fundamental problem in game theory. Social scientists can use game theory to describe and predict people's behavior. Examples include economic phenomena like stock market fluctuations and political phenomena like revolutions. Nations use game theory to simulate the outcomes of various options when negotiating economic treaties or conducting war.
 
 MATERIALS
 Computer with Enthought Canopy distribution of Python® programming language, Internet browser, and GitHub client software
