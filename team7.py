@@ -1,14 +1,14 @@
-####
+#### 
 # Each team's file must define four tokens:
 #     team_name: The Game Theory 
-#     strategy_name: Betray 
+#     strategy_name: Betray  
 #     strategy_description: Always Betray 
 #     move: return 'b' 
 ####
 
-team_name = 'The Game Theory'  #
+team_name = 'The Game Theory'  
 strategy_name = 'Betray'
-strategy_description = 'Always Betray'
+strategy_description = 'Always Betray' 
     
 def move(my_history, their_history, my_score, their_score):
     return 'b' 
