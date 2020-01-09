@@ -7,26 +7,19 @@
 ####
 
 team_name = 'Cryostheno' # Only 10 chars displayed.
-strategy_name = 'Collude with Trust'
-strategy_description = 'Collude when it is likely they will as well'
+strategy_name = 'Sneaky betrayal'
+strategy_description = 'Betray and trick the other team to collude'
     
 def move(my_history, their_history, my_score, their_score):
-    if len(their_history) <= 3:
-        return 'c'
-    while len(their_history) >= 4:
-        if their_history[-1] == 'c' and their_history[-2] == 'c':
-            return "c"   
-        elif their_history[-1:-3] == 'b':
+    while len(their_history) >= 4:  
+        if their_history[:-3] == 'b':
             return 'b'
-        elif their_history[-1:-3] == 'c':
+        elif their_history[:-3] == 'c':
             return 'c'
-        elif their_history[-1] == their_history[-3] and their_history[-2] == their_history[-4]:
-            if their_history[-1] == 'c':
-                return 'b'
-            else:
-                return 'b'
         else:
             return 'b'
+    else:
+        return 'b'
    
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
@@ -42,8 +35,6 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
-    #return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
