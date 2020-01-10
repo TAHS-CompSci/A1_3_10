@@ -12,9 +12,9 @@ strategy_description = 'Betray and trick the other team to collude'
     
 def move(my_history, their_history, my_score, their_score):
     while len(their_history) >= 4:  
-        if their_history[:-3] == 'b':
+        if their_history[:-3] == ['b','b','b']:
             return 'b'
-        elif their_history[:-3] == 'c':
+        elif their_history[:-3] == ['c','c','c']:
             return 'c'
         else:
             return 'b'
