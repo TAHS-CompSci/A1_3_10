@@ -9,17 +9,36 @@
 team_name = 'Cryosthenos' # Only 10 chars displayed.
 strategy_name = 'Sneaky betrayal'
 strategy_description = 'Betray and trick the other team to collude'
-    
+points = []
+my_history2 = []
+their_history2 = []
+
 def move(my_history, their_history, my_score, their_score):
-    while len(their_history) >= 4:  
-        if their_history[:-3] == ['b','b','b']:
-            return 'b'
-        elif their_history[:-3] == ['c','c','c']:
-            return 'c'
-        else:
-            return 'b'
-    else:
-        return 'b'
+	global points
+	global my_history2
+	global their_history2
+	their_history2 += their_history
+	my_history2 += my_history
+	while len(my_history2) > 2:
+		if my_history2[-1] == their_history2[-1] and my_history2[-1] == 'c':
+			points += [0]
+		if my_history2[-1] == their_history2[-1] and my_history2[-1] == 'b':
+			points += [-250]
+		if my_history2[-1] != their_history2[-1] and my_history2[-1] == 'c':
+			points += [-500]
+		if my_history2[-1] != their_history2[-1] and my_history2[-1] == 'b':
+			points += [100]
+		if len(points) >= 2: 
+			if points[-1] == points[-2]:
+				return their_history2[-2]
+			if points[-1] < points[-2]:
+				return their_history2[-1]
+			if points[-1] > points[-2]:
+				return my_history2[-1]
+			else:
+				return 'b'
+	else:
+		return 'b'
    
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
